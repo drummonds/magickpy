@@ -9,6 +9,7 @@ class TestSimple(unittest.TestCase):
         self.samplepath = os.path.join(os.path.dirname(__file__), 'sample.jpg')
         self.samplepath2 = os.path.join(os.path.dirname(__file__), 'star.png')
         self.outputpath = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'build', 'sample.jpg')
+        self.pdfpath = os.path.join(os.path.dirname(__file__), 'test.pdf')
 
     def testInstantiated(self):
         from magickpy import lib
@@ -161,3 +162,11 @@ class TestSimple(unittest.TestCase):
             p0 = px[49, 49]
             self.assertEqual((p0.red, p0.green, p0.blue),
                                (65535, 65535, 65535))
+
+    def testPDFConversionToImage(self):
+        """
+        This tests a use case of converting a PDF to a thumbnail of the first page
+        """
+        im = Image.read(self.pdfpath)
+        self.assertTrue(im.write(self.outputpath))
+
