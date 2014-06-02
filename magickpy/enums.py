@@ -1,4 +1,4 @@
-from flufl import enum
+from enum import Enum
 from magickpy.util import wrap_enum_class
 
 __all__ = [
@@ -11,7 +11,7 @@ __all__ = [
     'DitherMethod',
     ]
 
-class CompositeOp(enum.Enum):
+class CompositeOp(Enum):
     Undefined = 0
     No = 1
     Add = 2
@@ -71,7 +71,7 @@ class CompositeOp(enum.Enum):
 
 wrap_enum_class(CompositeOp)
 
-class VirtualPixelMethod(enum.Enum):
+class VirtualPixelMethod(Enum):
     Undefined = 0
     Background = 1
     Constant = 2 # deprecated
@@ -88,7 +88,7 @@ class VirtualPixelMethod(enum.Enum):
 
 wrap_enum_class(VirtualPixelMethod)
 
-class ChannelType(enum.Enum):
+class ChannelType(Enum):
     Undefined = 0
     Red = 0x0001
     Green = 0x0002
@@ -108,7 +108,7 @@ ChannelType.Magenta = ChannelType.Green
 ChannelType.Cyan = ChannelType.Red
 ChannelType.Gray = ChannelType.Red
 
-class FilterTypes(enum.Enum):
+class FilterTypes(Enum):
     UndefinedFilter = 0
     PointFilter = 1
     BoxFilter = 2
@@ -135,7 +135,7 @@ class FilterTypes(enum.Enum):
 
 wrap_enum_class(FilterTypes)
 
-class ColorspaceType(enum.Enum):
+class ColorspaceType(Enum):
     Undefined = 0
     RGB = 1
     GRAY = 2
@@ -162,7 +162,7 @@ class ColorspaceType(enum.Enum):
 
 wrap_enum_class(ColorspaceType)
 
-class MetricType(enum.Enum):
+class MetricType(Enum):
     Undefined = 0
     AbsoluteError = 1
     MeanAbsoluteError = 2
@@ -174,7 +174,7 @@ class MetricType(enum.Enum):
 
 wrap_enum_class(MetricType)
 
-class DitherMethod(enum.Enum):
+class DitherMethod(Enum):
     Undefined = 0
     No = 1
     Riemersma = 2

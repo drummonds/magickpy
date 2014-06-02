@@ -52,7 +52,7 @@ class Color(PixelPacket):
     def named(C, name):
         exc = ExceptionInfo()
         col = MagickPixelPacket()
-        col.colorspace = int(ColorspaceType.RGB)
+        col.colorspace = ColorspaceType.RGB.value
         name = name.encode('utf-8')
         if not lib.QueryMagickColor(name, ctypes.byref(col), exc):
             raise ImageMagickException(exc)

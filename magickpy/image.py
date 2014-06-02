@@ -280,7 +280,7 @@ class Image(_PImage):
         if not res:
             raise ImageMagickException(inf.exception)
         im = C(res)
-        im.setColorspace(ColorspaceType.RGB)
+        im.setColorspace(ColorspaceType.RGB.value)
         im.setBackgroundColor(color)
         return im
 
@@ -397,7 +397,7 @@ class Image(_PImage):
         s = dst_percent is not None and "%fx%f" % (percent, dst_percent) or "%f" % percent
         im.geometry = s
         try:
-            return self.applyComposite(CompositeOp.Dissolve, im, x, y)
+            return self.applyComposite(CompositeOp.Dissolve.value, im, x, y)
         finally:
             im.geometry = g
 

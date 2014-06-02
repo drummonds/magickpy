@@ -29,6 +29,7 @@ class TestSimple(unittest.TestCase):
         self.assertEqual(410, im.height)
         return im
 
+    #I have left this test in which is supposed to raise an exception but I can't work out why
     def testPingExc1(self):
         res = self.testPing()
         self.assertRaises(ImageMagickException, res.makeThumbnail, 10, 10)
@@ -69,11 +70,11 @@ class TestSimple(unittest.TestCase):
     def testComposite(self):
         im = self.testRead()
         im2 = self.testRead2()
-        im.applyComposite(CompositeOp.CopyOpacity, im2, 10, 10)
+        im.applyComposite(CompositeOp.CopyOpacity.value, im2, 10, 10)
 
     def testVirtualPixel(self):
         im = self.testRead()
-        im.setVirtualPixelMethod(VirtualPixelMethod.Background)
+        im.setVirtualPixelMethod(VirtualPixelMethod.Background.value)
 
     def testBlur(self):
         im = self.testRead2()
@@ -117,7 +118,7 @@ class TestSimple(unittest.TestCase):
 
     def testSeparateChannel(self):
         im = self.testRead()
-        im.applySeparateChannel(ChannelType.Matte)
+        im.applySeparateChannel(ChannelType.Matte.value)
 
     def testCopy(self):
         im = self.testRead()
